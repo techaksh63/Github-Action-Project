@@ -89,13 +89,11 @@ jobs:
           -Dsonar.projectKey=techaksh63_Github-Action-Project            
 
     - name: SonarCloud Quality Gate Check
-      id: sonarqube-quality-gate-check
-      uses: sonarsource/sonarqube-quality-gate-action@master
+      uses: SonarSource/sonarcloud-quality-gate-action@v1
       with:
-        pollingTimeoutSec: 600
+        scanMetadataReportFile: .scannerwork/report-task.txt
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
 
   build_docker_image_and_push:
     runs-on: ubuntu-latest
