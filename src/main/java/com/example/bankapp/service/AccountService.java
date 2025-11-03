@@ -134,4 +134,11 @@ public class AccountService implements UserDetailsService {
         transactionRepository.save(creditTransaction);
     }
 
+    public BigDecimal getBalance(String username) {
+        Account account = findAccountByUsername(username);
+        if (account == null) {
+            throw new RuntimeException("Account not found for username: " + username);
+        }
+        return account.getBalance();
+    }
 }
