@@ -1,6 +1,6 @@
 # 🚀 CICD Pipeline
 
-This project implements a **complete end-to-end CI/CD pipeline** using **GitHub Actions**, automating everything from compilation and security checks to deployment on AWS EKS (Kubernetes).
+This project implements a **complete end-to-end CI/CD pipeline** using **GitHub Actions**, automating everything from compilation and security checks to builds docker image and push it to docker hub.
 
 ---
 
@@ -16,7 +16,6 @@ It covers the following stages:
 | **3. Unit Testing** | Runs all unit test cases using `mvn test` to ensure code quality. |
 | **4. Build & SonarQube Analysis** | Packages the app, performs static code analysis using **SonarQube/SonarCloud**, and uploads the build artifact. |
 | **5. Docker Build & Push** | Builds a Docker image from the packaged JAR and pushes it to **Docker Hub**. |
-| **6. Deploy to Kubernetes (AWS EKS)** | Deploys the Docker image to **AWS Elastic Kubernetes Service (EKS)** using `kubectl`. |
 
 ---
 
@@ -46,10 +45,6 @@ It covers the following stages:
 - Builds a Docker image using `Dockerfile`.
 - Logs into **Docker Hub** using secrets.
 - Pushes the image with tag: `latest`.
-
-### ☸️ 6. **Deploy to Kubernetes (AWS EKS)**
-- Configures AWS CLI and Kubernetes context.
-- Applies the deployment file `ds.yml` to deploy the app on EKS.
 
 ---
 
